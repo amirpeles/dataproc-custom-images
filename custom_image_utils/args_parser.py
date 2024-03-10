@@ -27,8 +27,8 @@ from custom_image_utils import constants
 # Old style images: 1.2.3
 # New style images: 1.2.3-deb8, 1.2.3-debian9, 1.2.3-RC10-debian9
 _VERSION_REGEX = re.compile(r"^\d+\.\d+\.\d+(-RC\d+)?(-[a-z]+\d+)?$")
-_FULL_IMAGE_URI = re.compile(r"^(https://www\.googleapis\.com/compute/([^/]+)/)?projects/([^/]+)/global/images/([^/]+)$")
-_FULL_IMAGE_FAMILY_URI = re.compile(r"^(https://www\.googleapis\.com/compute/([^/]+)/)?projects/([^/]+)/global/images/family/([^/]+)$")
+_FULL_IMAGE_URI = re.compile(r"^(https://(www|compute)\.googleapis\.com/compute/([^/]+)/)?projects/([^/]+)/global/images/([^/]+)$")
+_FULL_IMAGE_FAMILY_URI = re.compile(r"^(https://(www|compute)\.googleapis\.com/compute/([^/]+)/)?projects/([^/]+)/global/images/family/([^/]+)$")
 _LATEST_FROM_MINOR_VERSION = re.compile(r"^(\d+)\.(\d+)-((?:debian|ubuntu|centos)\d+)$")
 
 def _version_regex_type(s):
@@ -57,7 +57,7 @@ def parse_args(args):
       "--image-name",
       type=str,
       required=True,
-      help="""The image name for the Dataproc custom image.""")
+      help="""The image name for the custom image.""")
   image_args = required_args.add_mutually_exclusive_group()
   image_args.add_argument(
       "--dataproc-version",

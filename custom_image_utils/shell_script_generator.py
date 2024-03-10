@@ -63,7 +63,7 @@ function main() {{
 
   echo 'Creating disk.'
   if [[ '{base_image_family}' = '' ||  '{base_image_family}' = 'None' ]]; then
-     IMAGE_SOURCE="--image={dataproc_base_image}"
+     IMAGE_SOURCE="--image={base_image}"
   else
      IMAGE_SOURCE="--image-family={base_image_family}"
   fi

@@ -44,7 +44,8 @@ def _set_custom_image_label(image_name, version, project_id):
 def add_label(args):
   """Sets Dataproc version label in the custom image."""
 
-  if not args.dry_run:
+  # Set labels only in custom images based on Dataproc images
+  if not args.dry_run and args.dataproc_version:
     _LOG.info("Setting label on custom image...")
     _set_custom_image_label(args.image_name, args.dataproc_version,
                             args.project_id)
