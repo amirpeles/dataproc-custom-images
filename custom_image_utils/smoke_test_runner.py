@@ -130,7 +130,7 @@ def run(args):
   """Runs smoke test."""
 
   if not args.dry_run:
-    if not args.no_smoke_test:
+    if not args.no_smoke_test and args.dataproc_version:
       _LOG.info("Verifying the custom image...")
       _verify_custom_image(args.image_name, args.project_id, args.zone,
                            args.network, args.subnetwork, args.no_external_ip)
